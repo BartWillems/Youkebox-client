@@ -1,5 +1,7 @@
 $(function() {
 
+    reloadCardHover();
+
     var searchBar       = $('#searchBar');
     var youtubeResult   = $('#youtubeResult');
     var videos          = youtubeResult.html();
@@ -24,6 +26,7 @@ $(function() {
                     console.log(response);
                     searchBar.removeClass('loading disabled');
                     youtubeResult.html(videos);
+                    reloadCardHover();
                 }, 3000);
             },
             onSuccess : function(response) {
@@ -33,4 +36,10 @@ $(function() {
                 console.log('Failure');
             }
         })
+
+    function reloadCardHover(){
+        $('.special.cards .image').dimmer({
+              on: 'hover'
+        });
+    }
 });
