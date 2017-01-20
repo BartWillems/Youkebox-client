@@ -8,3 +8,6 @@
     left: 0;
     width: 100%;
 }
+.cstm_playlist_button {
+    padding: 20px !important;
+}
