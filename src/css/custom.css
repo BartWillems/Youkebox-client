@@ -11,3 +11,6 @@
 .cstm_playlist_button {
     padding: 20px !important;
 }
+.ui.card, .ui.cards>.card {
+    width: 271px !important;
+}

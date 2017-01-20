@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="/css/custom.css">
+        <link rel="icon" type="image/png" href="/favicon.png">
         <!--[if lt IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
         <![endif]-->
@@ -32,14 +33,95 @@
         <br>
         <div class="ui container">
             <h1>Search for your favorite music</h1>
-            <div class="ui fluid icon input">
-                <input type="text" placeholder="Search for music like black & death metal">
+            <div class="ui fluid icon input" id="searchBar">
+                <input type="text" id="youtubeQuery" placeholder="Search for music like black & death metal">
                 <i class="search icon"></i>
             </div>
         </div>
         <br>
         <div class="ui container" id="youtubeResult">
             <div class="ui special cards">
+                <div class="card">
+                    <div class="blurring dimmable image">
+                        <div class="ui dimmer">
+                            <div class="content">
+                                <div class="center">
+                                    <div class="ui inverted button cstm_playlist_button">Add to playlist</div>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="/img/elliot.jpg">
+                    </div>
+                    <div class="content">
+                        <a class="header">10 Hours of the Bee movie but the screen is always ellio.jpg and there is no sound</a>
+                    </div>
+
+                    <div class="extra content">
+                        <i class="wait icon"></i>
+                        10:00:00
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="blurring dimmable image">
+                        <div class="ui dimmer">
+                            <div class="content">
+                                <div class="center">
+                                    <div class="ui inverted button cstm_playlist_button">Add to playlist</div>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="/img/elliot.jpg">
+                    </div>
+                    <div class="content">
+                        <a class="header">10 Hours of the Bee movie but the screen is always ellio.jpg and there is no sound</a>
+                    </div>
+
+                    <div class="extra content">
+                        <i class="wait icon"></i>
+                        10:00:00
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="blurring dimmable image">
+                        <div class="ui dimmer">
+                            <div class="content">
+                                <div class="center">
+                                    <div class="ui inverted button cstm_playlist_button">Add to playlist</div>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="/img/elliot.jpg">
+                    </div>
+                    <div class="content">
+                        <a class="header">10 Hours of the Bee movie but the screen is always ellio.jpg and there is no sound</a>
+                    </div>
+
+                    <div class="extra content">
+                        <i class="wait icon"></i>
+                        10:00:00
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="blurring dimmable image">
+                        <div class="ui dimmer">
+                            <div class="content">
+                                <div class="center">
+                                    <div class="ui inverted button cstm_playlist_button">Add to playlist</div>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="/img/elliot.jpg">
+                    </div>
+                    <div class="content">
+                        <a class="header">10 Hours of the Bee movie but the screen is always ellio.jpg and there is no sound</a>
+                    </div>
+
+                    <div class="extra content">
+                        <i class="wait icon"></i>
+                        10:00:00
+                    </div>
+                </div>
+
                 <div class="card">
                     <div class="blurring dimmable image">
                         <div class="ui dimmer">
@@ -73,4 +155,5 @@ crossorigin="anonymous">
               on: 'hover'
         });
     </script>
+    <script src="/js/getYoutubeVideos.js"></script>
 </html>
