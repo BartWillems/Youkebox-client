@@ -8,9 +8,12 @@ $(function() {
     var videos          = youtubeResult.html();
     var loading         = false;
 
+    $.fn.api.settings.api = {
+        'search' : '/api/search/?videos=1&query={query}'
+    };
+
     $('#youtubeQuery').keypress(function (e) {
-        console.log(loading);
-        if (e.which == 13 && !loading) {
+        if (e.which == 13 && !loading && inputBar.length > 0) {
             loading = true;
             $('form#search').submit();
             searchBar.addClass('loading disabled');
@@ -26,7 +29,13 @@ $(function() {
 
     $('.ui.form')
         .api({
-            url: 'http://www.google.com?q=dink',
+            action : 'search',
+            beforeSend: function(settings) {
+                settings.urlData = {
+                    query : inputBar.val()
+                };
+                return settings;
+            },
             onComplete : function(response) {
                 setTimeout(function(){
                     console.log('Fake delay');
