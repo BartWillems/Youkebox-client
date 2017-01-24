@@ -50,14 +50,12 @@ $(function() {
                 return settings;
             },
             onComplete : function(response) {
-                console.log(response);
                 searchBar.removeClass('loading disabled');
                 inputBar.prop('disabled', false);
                 youtubeResult.html('');
                 loading = false;
             },
             onSuccess : function(response) {
-                console.log('Success');
                 var videoLength = response.length;
                 var videos      = response;
                 var html        = '';
