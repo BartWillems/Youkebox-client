@@ -52,6 +52,18 @@
             <div class="ui tab " data-tab="playlist">
                 <div class="ui container">
                     <h1>Playlist</h1>
+                        <table class="ui table">
+                            <thead>
+                                <tr>
+                                    <th class="one wide">#</th>
+                                    <th class="seven wide">Title</th>
+                                    <th class="four wide">Duration</th>
+                                    <th class="four wide">Requested By</th>
+                                </tr>
+                            </thead>
+                            <tbody id="playlistBody">
+                            </tbody>
+                        </table>
                 </div>
             </div>
             <div class="ui tab " data-tab="playing">
@@ -62,7 +74,7 @@
         </main>
         <footer>
             <div class="ui container footer-content">
-                <i class="video play icon"></i> Now Playing: Death - Spiritual Healing
+                <i class="video play icon"></i> Now Playing: <span id="currentlyPlaying">Loading...</span>
             </div>
         </footer>
     </body>
@@ -71,7 +83,10 @@
 crossorigin="anonymous">
     </script>
     <script src="semantic/dist/semantic.min.js"></script>
+    <script src="js/root.js"></script>
     <script src="js/getYoutubeVideos.js"></script>
+    <script src="js/addYoutubeVideo.js"></script>
+    <script src="js/playlistFetcher.js"></script>
     <script>
         $('.menu .item').tab(); 
     </script>

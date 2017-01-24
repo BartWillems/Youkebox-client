@@ -21,9 +21,6 @@ $(function() {
         card = c;
     }, 'html');
 
-    $.fn.api.settings.api = {
-        'search' : 'api/search/?videos=1&query={query}'
-    };
 
     $('#youtubeQuery').keypress(function (e) {
         if (e.which == 13 && !loading && inputBar.length > 0) {
@@ -58,45 +55,16 @@ $(function() {
             onSuccess : function(response) {
                 var videoLength = response.length;
                 var videos      = response;
+                $scope.videos   = response;
                 var html        = '';
-                var durationMap = {
-                    PT : '',
-                    H  : ':',
-                    M  : ':',
-                    S  : '',
-                };
                 for(var i = 0; i < videoLength; i++) {
                     var video       = videos[i];
                     var videoCard   = card;
-                    var duration    = video.contentDetails.duration;
-                    duration = duration.replace(/PT|H|M|S/gi, function(matched) {
-                        return durationMap[matched];
-                    });
-                    duration = duration.split(':');
-                    if(duration.length > 2) {
-                        // Duration > 1 hour
-                        if(duration[1] < 10) {
-                            duration[1] = '0' + duration[1];
-                        }
-                        if(!duration[2]) {
-                            duration[2] = '00';
-                        } else if(duration[2] < 10) {
-                            duration[2] = '0' + duration[2];
-                        }
-                        duration = duration[0] + ':' + duration[1] + ':' + duration[2];
-                    } else if(duration.length > 1) {
-                        // Duration > 1 minute
-                        if(duration[1] < 10) {
-                            duration[1] = '0' + duration[1];
-                        }
-                        duration = duration[0] + ':' + duration[1];
-                    } else {
-                        // Duration < 1 minute
-                        duration = duration[0] + ' seconds';
-                    }
+                    var duration    = parseDuration(video.contentDetails.duration);
                     videoCard = videoCard.replace('{{thumbnail}}', video.snippet.thumbnails.high.url);
                     videoCard = videoCard.replace('{{title}}', video.snippet.title)
                     videoCard = videoCard.replace('{{duration}}', duration)
+                    videoCard = videoCard.replace('{{videoID}}', video.id)
                     html = html + videoCard;
                 }
                 youtubeResult.html(html);
@@ -105,6 +73,7 @@ $(function() {
             onFailure : function(response) {
                 console.log('Failure');
                 youtubeError.html(error);
+                $scope.videos = null;
             }
         })
 
@@ -114,3 +83,4 @@ $(function() {
         });
     }
 });
+
