@@ -19,12 +19,12 @@
                 <div class="ui grid">
                     <div class="column">
                         <div class="ui top secondary menu">
-                            <a class="item brand" href="/">
+                            <a class="item brand">
                                 <!-- <img class="ui mini image" src="/img/favicon.png"> -->
                                 <h3>YoukeBox</h3>
                             </a>
-                            <a class="item active" href="/">Search</a>
-                            <a class="item" href="current-playlist.html">Current Playlist</a>
+                            <a class="item active" data-tab="search">Search</a>
+                            <a class="item" data-tab="playlist">Current Playlist</a>
                         </div>
                     </div>
                 </div>
@@ -32,20 +32,27 @@
         </div>
         <br>
         <main class="Site-content">
-            <div class="ui container">
-                <h1>Search for your favorite music</h1>
-                <form class="ui form" id="search">
-                    <div class="ui fluid icon input" id="searchBar">
-                        <input type="text" name="query" disabled id="youtubeQuery" placeholder="Search for music like black & death metal">
-                        <i class="search icon"></i>
-                    </div>
-                </form>
-            </div>
-            <br>
-            <div class="ui container">
-                <div class="ui special cards" id="youtubeResult"></div>
+            <div class="ui active tab " data-tab="search">
+                <div class="ui container">
+                    <h1>Search for your favorite music</h1>
+                    <form class="ui form" id="search">
+                        <div class="ui fluid icon input" id="searchBar">
+                            <input type="text" name="query" disabled id="youtubeQuery" placeholder="Search for music like black & death metal">
+                            <i class="search icon"></i>
+                        </div>
+                    </form>
+                </div>
                 <br>
-                <div id="youtubeError"></div>
+                <div class="ui container">
+                    <div class="ui special cards" id="youtubeResult"></div>
+                    <br>
+                    <div id="youtubeError"></div>
+                </div>
+            </div>
+            <div class="ui tab " data-tab="playlist">
+                <div class="ui container">
+                    <h1>Current Playlist</h1>
+                </div>
             </div>
         </main>
         <footer>
@@ -60,4 +67,7 @@ crossorigin="anonymous">
     </script>
     <script src="semantic/dist/semantic.min.js"></script>
     <script src="js/getYoutubeVideos.js"></script>
+    <script>
+        $('.menu .item').tab(); 
+    </script>
 </html>

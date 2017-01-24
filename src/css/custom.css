@@ -22,6 +22,7 @@
 
 .Site-content {
   flex: 1;
+  margin-bottom: 40px;
 }
 
 footer {
@@ -29,6 +30,8 @@ footer {
     padding: 10px 0;
     width: 100%;
     background-color: black;
+    position: fixed;
+    bottom: 0;
 }
 
 .footer-content {
