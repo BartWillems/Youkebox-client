@@ -6,14 +6,14 @@
         <meta name="description" content="The HTML5 Herald">
         <meta name="author" content="SitePoint">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
-        <link rel="stylesheet" type="text/css" href="/css/custom.css">
-        <link rel="icon" type="image/png" href="/favicon.png">
+        <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="css/custom.css">
+        <link rel="icon" type="image/png" href="favicon.png">
         <!--[if lt IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
         <![endif]-->
     </head>
-    <body>
+    <body class="Site">
         <div class="following bar light">
             <div class="ui container">
                 <div class="ui grid">
@@ -31,26 +31,33 @@
             </div>
         </div>
         <br>
-        <div class="ui container">
-            <h1>Search for your favorite music</h1>
-            <form class="ui form" id="search">
-                <div class="ui fluid icon input" id="searchBar">
-                    <input type="text" name="query" disabled id="youtubeQuery" placeholder="Search for music like black & death metal">
-                    <i class="search icon"></i>
-                </div>
-            </form>
-        </div>
-        <br>
-        <div class="ui container">
-            <div class="ui special cards" id="youtubeResult"></div>
+        <main class="Site-content">
+            <div class="ui container">
+                <h1>Search for your favorite music</h1>
+                <form class="ui form" id="search">
+                    <div class="ui fluid icon input" id="searchBar">
+                        <input type="text" name="query" disabled id="youtubeQuery" placeholder="Search for music like black & death metal">
+                        <i class="search icon"></i>
+                    </div>
+                </form>
+            </div>
             <br>
-            <div id="youtubeError"></div>
-        </div>
+            <div class="ui container">
+                <div class="ui special cards" id="youtubeResult"></div>
+                <br>
+                <div id="youtubeError"></div>
+            </div>
+        </main>
+        <footer>
+            <div class="ui container footer-content">
+                <i class="video play icon"></i> Now Playing: Death - Spiritual Healing
+            </div>
+        </footer>
     </body>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 crossorigin="anonymous">
     </script>
     <script src="semantic/dist/semantic.min.js"></script>
-    <script src="/js/getYoutubeVideos.js"></script>
+    <script src="js/getYoutubeVideos.js"></script>
 </html>

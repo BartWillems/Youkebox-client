@@ -13,8 +13,8 @@ $(function() {
 
     // Fetch the required template files
     // Only enable input when we have both
-    $.get('/templates/card.template.html', function(c) {
-        $.get('/templates/error.template.html', function(e){
+    $.get('templates/card.template.html', function(c) {
+        $.get('templates/error.template.html', function(e){
             inputBar.prop('disabled', false);
             error = e;
         })
@@ -22,7 +22,7 @@ $(function() {
     }, 'html');
 
     $.fn.api.settings.api = {
-        'search' : '/api/search/?videos=1&query={query}'
+        'search' : 'api/search/?videos=1&query={query}'
     };
 
     $('#youtubeQuery').keypress(function (e) {

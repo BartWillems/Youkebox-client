@@ -14,3 +14,23 @@
 .ui.card, .ui.cards>.card {
     width: 271px !important;
 }
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.Site-content {
+  flex: 1;
+}
+
+footer {
+    height: 40px;
+    padding: 10px 0;
+    width: 100%;
+    background-color: black;
+}
+
+.footer-content {
+    color: #FFF;
+}
