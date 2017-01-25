@@ -4,10 +4,32 @@ var $scope = {
 };
 
 $(function() {
+
     $.fn.api.settings.api = {
         'search'    : 'api/search/?videos=1&query={query}',
         'add video' : 'api/add/video'
     };
+
+    $.fn.embed.settings.sources = {
+        youtube: {
+            name   : 'youtube',
+            type   : 'video',
+            icon   : 'video play',
+            domain : 'youtube.com',
+            url    : '//www.youtube.com/embed/{id}',
+            parameters: function(settings) {
+                console.log(settings.autoplay);
+                return {
+                    autohide       : !settings.showUI,
+                    autoplay       : true,
+                    color          : settings.colors || undefined,
+                    hq             : settings.hd,
+                    jsapi          : settings.api,
+                    modestbranding : 1
+                };
+            }
+        }
+    }
 });
 
 function parseDuration(duration) {

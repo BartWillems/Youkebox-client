@@ -42,8 +42,11 @@ $(function() {
         if($scope.playlist.length > 0) {
             if($scope.video.data('id') !== $scope.playlist[0].video_id) {
                 var id = $scope.playlist[0].video_id;
-                // Set the currently playing video as the first entry in the playlist
-                $scope.video.embed('change', id, 'https://www.youtube.com/embed/' + id + '&aytoplay=1');
+                $scope.video.data('id', id);
+                $scope.video.embed({
+                    source  : 'youtube',
+                    id      : id
+                });
             }
         }
     }
