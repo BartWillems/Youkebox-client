@@ -12,7 +12,6 @@ $(function() {
             $scope.playlist = data;
             drawPlaylist();
             if($scope.playlist.length > 0) {
-                currentlyPlaying.html(data[0].title);
                 getCurrentVideo();
             } else {
                 currentlyPlaying.html('Nothing');
@@ -40,13 +39,16 @@ $(function() {
 
     function getCurrentVideo() {
         if($scope.playlist.length > 0) {
-            if($scope.video.data('id') !== $scope.playlist[0].video_id) {
-                var id = $scope.playlist[0].video_id;
-                $scope.video.data('id', id);
+            if($scope.currentVideo !== $scope.playlist[0].video_id) {
+                var firstVideo = $scope.playlist[0];
+                var id = firstVideo.video_id;
+                $scope.currentVideo = id;
                 $scope.video.embed({
                     source  : 'youtube',
+                    url     : '//www.youtube.com/embed/' + id,
                     id      : id
                 });
+                currentlyPlaying.html(firstVideo.title);
             }
         }
     }

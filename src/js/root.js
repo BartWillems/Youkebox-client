@@ -1,5 +1,6 @@
 var $scope = {
     video       : $('#current-video'),
+    currentVideo: null,
     playlist    : {}
 };
 
@@ -19,7 +20,7 @@ $(function() {
             url    : '//www.youtube.com/embed/{id}',
             parameters: function(settings) {
                 return {
-                    autohide       : !settings.showUI,
+                    autohide       : settings.showUI,
                     autoplay       : true,
                     color          : settings.colors || undefined,
                     hq             : settings.hd,
