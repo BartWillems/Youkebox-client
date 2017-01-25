@@ -1,4 +1,7 @@
-var $scope = {};
+var $scope = {
+    video       : $('#current-video'),
+    playlist    : {}
+};
 
 $(function() {
     $.fn.api.settings.api = {

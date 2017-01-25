@@ -70,6 +70,8 @@
             <div class="ui tab " data-tab="playing">
                 <div class="ui container">
                     <h1>Currently Playing</h1>
+                    <div class="ui 16:9 embed" id="current-video" data-source="youtube" data-id="" data-placeholder=""></div>
+                    <br>
                 </div>
             </div>
         </main>
@@ -88,6 +90,7 @@ crossorigin="anonymous">
     <script src="js/getYoutubeVideos.js"></script>
     <script src="js/addYoutubeVideo.js"></script>
     <script src="js/playlistFetcher.js"></script>
+    <script src="js/getCurrentVideo.js"></script>
     <script>
         $('.menu .item').tab(); 
     </script>
