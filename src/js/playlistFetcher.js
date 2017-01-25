@@ -45,6 +45,5 @@ $(function() {
                 $scope.video.data('id', $scope.playlist[0].video_id);
             }
         }
-        setTimeout(getCurrentVideo(), 1000);
     }
 });
