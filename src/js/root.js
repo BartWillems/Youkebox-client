@@ -18,7 +18,6 @@ $(function() {
             domain : 'youtube.com',
             url    : '//www.youtube.com/embed/{id}',
             parameters: function(settings) {
-                console.log(settings.autoplay);
                 return {
                     autohide       : !settings.showUI,
                     autoplay       : true,
