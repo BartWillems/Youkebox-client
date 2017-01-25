@@ -13,6 +13,7 @@ $(function() {
             drawPlaylist();
             if($scope.playlist.length > 0) {
                 currentlyPlaying.html(data[0].title);
+                getCurrentVideo();
             } else {
                 currentlyPlaying.html('Nothing');
             }
