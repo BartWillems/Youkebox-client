@@ -11,7 +11,6 @@ $(function() {
         $.get("api/get/playlist/", function(data) {
             $scope.playlist = data;
             drawPlaylist();
-            console.log(data);
             if($scope.playlist.length > 0) {
                 currentlyPlaying.html(data[0].title);
             } else {
