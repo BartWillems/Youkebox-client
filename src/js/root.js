@@ -17,7 +17,6 @@ $(function() {
             type   : 'video',
             icon   : 'video play',
             domain : 'youtube.com',
-            url    : '//www.youtube.com/embed/{id}',
             parameters: function(settings) {
                 return {
                     autohide       : settings.showUI,
