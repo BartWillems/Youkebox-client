@@ -16,7 +16,7 @@ $(function() {
             name   : 'youtube',
             type   : 'video',
             icon   : 'video play',
-            domain : 'youtube.com'
+            domain : 'youtube.com',
             parameters: function(settings) {
                 return {
                     autoplay       : true,
