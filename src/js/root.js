@@ -19,6 +19,7 @@ $(function() {
             domain : 'youtube.com',
             parameters: function(settings) {
                 return {
+                    autohide       : true,
                     autoplay       : true,
                     hq             : settings.hd,
                     jsapi          : settings.api,
