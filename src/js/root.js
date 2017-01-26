@@ -23,7 +23,7 @@ $(function() {
                     hq             : settings.hd,
                     jsapi          : settings.api,
                     modestbranding : 1,
-                    time           : $scope.playlist[0].time
+                    start          : $scope.playlist[0].time
 
                 };
             }
