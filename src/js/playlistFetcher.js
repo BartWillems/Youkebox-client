@@ -9,8 +9,19 @@ $(function() {
 
     function fetchVideos() {
         $.get("api/get/playlist/", function(data) {
-            $scope.playlist = data;
-            drawPlaylist();
+            var playlistLength = $scope.playlist.length;
+            if(playlistLength !== data.length) {
+                $scope.playlist = data;
+                drawPlaylist();
+            } else {
+                for(i=0; i < playlistLength; i++) {
+                    if($scope.playlist[i].id !== data[i].id) {
+                        $scope.playlist = data;
+                        drawPlaylist();
+                        break;
+                    }
+                }
+            }
             if($scope.playlist.length > 0) {
                 getCurrentVideo();
             } else {
@@ -40,12 +51,13 @@ $(function() {
     function getCurrentVideo() {
         if($scope.playlist.length > 0) {
             if($scope.currentVideo !== $scope.playlist[0].video_id) {
-                var firstVideo = $scope.playlist[0];
-                var id = firstVideo.video_id;
+                var firstVideo  = $scope.playlist[0];
+                var id          = firstVideo.video_id;
+                var videoTime   = firstVideo.time;
                 $scope.currentVideo = id;
                 $scope.video.embed({
                     source  : 'youtube',
-                    url     : '//www.youtube.com/embed/' + id,
+                    url     : '//www.youtube.com/embed/' + id + '?start=' + videoTime,
                     id      : id
                 });
                 currentlyPlaying.html(firstVideo.title);
