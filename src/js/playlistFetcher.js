@@ -57,7 +57,7 @@ $(function() {
                 $scope.currentVideo = id;
                 $scope.video.embed({
                     source  : 'youtube',
-                    url     : '//www.youtube.com/embed/' + id + '?start=' + videoTime,
+                    url     : '//www.youtube.com/embed/' + id,
                     id      : id
                 });
                 currentlyPlaying.html(firstVideo.title);

@@ -16,15 +16,15 @@ $(function() {
             name   : 'youtube',
             type   : 'video',
             icon   : 'video play',
-            domain : 'youtube.com',
+            domain : 'youtube.com'
             parameters: function(settings) {
                 return {
-                    autohide       : settings.showUI,
                     autoplay       : true,
-                    color          : settings.colors || undefined,
                     hq             : settings.hd,
                     jsapi          : settings.api,
-                    modestbranding : 1
+                    modestbranding : 1,
+                    time           : $scope.playlist[0].time
+
                 };
             }
         }
