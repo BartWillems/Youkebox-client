@@ -40,6 +40,7 @@ $(function() {
             row = rowTemplate;
             row = row.replace('{{index}}', y);
             row = row.replace('{{title}}', $scope.playlist[i].title);
+            row = row.replace('{{video_id}}', $scope.playlist[i].video_id);
             row = row.replace('{{duration}}', parseDuration($scope.playlist[i].duration));
             row = row.replace('{{requestor}}', 'anonymous');
             html += row;
