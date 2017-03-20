@@ -9,7 +9,9 @@ $(function() {
 
     function fetchVideos() {
         $.get("api/get/playlist/", function(data) {
+            // console.log('DEBUG: Received playlist....');
             var playlistLength = $scope.playlist.length;
+            // console.log(data);
             if(playlistLength !== data.length) {
                 $scope.playlist = data;
                 drawPlaylist();
@@ -27,7 +29,7 @@ $(function() {
             } else {
                 currentlyPlaying.html('Nothing');
             }
-            setTimeout(fetchVideos, 5000);
+            setTimeout(fetchVideos, 2000);
         }, "json");
     }
 
@@ -50,6 +52,7 @@ $(function() {
     }
 
     function getCurrentVideo() {
+        // console.log('DEBUG: getCurrentVideo');
         if($scope.playlist.length > 0) {
             if($scope.currentVideo !== $scope.playlist[0].video_id) {
                 var firstVideo  = $scope.playlist[0];
