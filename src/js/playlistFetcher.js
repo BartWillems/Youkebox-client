@@ -1,5 +1,6 @@
 $(function() {
     var currentlyPlaying  = $('#currentlyPlaying');
+    var currentlyListening= $('#currentlyListening');
     var playlistBody      = $('#playlistBody');
     var rowTemplate       = null;
     $.get('templates/playlist.template.html', function(p) {
@@ -9,16 +10,24 @@ $(function() {
 
     function fetchVideos() {
         $.get("api/get/playlist/", function(data) {
-            // console.log('DEBUG: Received playlist....');
-            var playlistLength = $scope.playlist.length;
-            // console.log(data);
-            if(playlistLength !== data.length) {
-                $scope.playlist = data;
+
+            var playlistLength  = $scope.playlist.length;   // The number of videos in the local playlist
+            var videos          = data.videos;              // The video list received from the server
+            var meta            = data.meta;                // The metadata from the server(# listeners, ...)
+
+            if(meta.userCount === 1) {
+                currentlyListening.html(meta.userCount + ' user listening');
+            } else {
+                currentlyListening.html(meta.userCount + ' users listening');
+            }
+
+            if(playlistLength !== videos.length) {
+                $scope.playlist = videos;
                 drawPlaylist();
             } else {
                 for(i=0; i < playlistLength; i++) {
-                    if($scope.playlist[i].id !== data[i].id) {
-                        $scope.playlist = data;
+                    if($scope.playlist[i].id !== videos[i].id) {
+                        $scope.playlist = videos;
                         drawPlaylist();
                         break;
                     }
